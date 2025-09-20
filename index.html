@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="tl">
+<head>
+  <meta charset="UTF-8">
+  <title>Video Choice</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      flex-direction: column;
+      background: url("Sore.jpeg") no-repeat center center/cover;
+      font-family: Arial, sans-serif;
+    }
+
+    video {
+      width: 400px;
+      height: 600px;
+      display: none;
+      border-radius: 16px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+    }
+
+    .choices {
+      display: flex;
+      gap: 20px;
+      margin-top: 20px;
+    }
+
+    button {
+      padding: 14px 32px;
+      font-size: 20px;
+      font-weight: bold;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      background: linear-gradient(45deg, #ff416c, #ff4b2b);
+      color: #fff;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+      transition: transform 0.2s, box-shadow 0.2s, background 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.1);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+      background: linear-gradient(45deg, #ff6a00, #ee0979);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+  <div class="choices">
+    <button id="yesBtn">❤️ Miss mo</button>
+    <button id="noBtn">💔 Hindi</button>
+  </div>
+
+  <video id="myVideo" controls loop>
+    <source src="missmo.mp4" type="video/mp4">
+    Ang browser mo ay hindi sumusuporta sa video tag.
+  </video>
+
+  <script>
+    const yesBtn = document.getElementById("yesBtn");
+    const noBtn = document.getElementById("noBtn");
+    const video = document.getElementById("myVideo");
+    const choices = document.querySelector(".choices");
+
+    yesBtn.addEventListener("click", () => {
+      choices.style.display = "none";
+      video.style.display = "block";
+      video.muted = false;
+      video.play();
+    });
+
+    noBtn.addEventListener("click", () => {
+      alert("error");
+    });
+  </script>
+</body>
+</html>
